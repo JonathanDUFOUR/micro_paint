@@ -1,0 +1,9 @@
+**
+
+!*/
+!*.c
+!*.h
+!en.txt
+!.gitignore
+!Makefile
+!LICENSE
