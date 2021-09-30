@@ -1,24 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   mp_ctx_print.c                                     :+:      :+:    :+:   */
+/*   mp_ctx_zone_print.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jodufour <jodufour@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/09/27 22:40:35 by jodufour          #+#    #+#             */
-/*   Updated: 2021/10/01 01:06:38 by jodufour         ###   ########.fr       */
+/*   Created: 2021/10/01 00:55:15 by jodufour          #+#    #+#             */
+/*   Updated: 2021/10/01 00:58:24 by jodufour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <unistd.h>
 #include "type/t_ctx.h"
 
-void	mp_ctx_print(void)
+void	mp_ctx_zone_print(void)
 {
 	t_ctx *const	ctx = mp_ctx_get();
+	int const		zone_width = ctx->zone_width;
+	int const		zone_height = ctx->zone_height;
+	char const		*zone = ctx->zone;
+	int				i;
 
-	printf("ctx->stream: %p\n", ctx->stream);
-	printf("ctx->zone_width: %d\n", ctx->zone_width);
-	printf("ctx->zone_height: %d\n", ctx->zone_height);
-	printf("ctx->background_char: %c\n", ctx->background_char);
-	printf("ctx->zone: %s\n", ctx->zone);
+	i = 0;
+	while (i < zone_height)
+	{
+		write(1, zone, zone_width);
+		write(1, "\n", 1);
+		zone += zone_width;
+		++i;
+	}
 }

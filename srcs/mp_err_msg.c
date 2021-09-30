@@ -6,14 +6,14 @@
 /*   By: jodufour <jodufour@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/27 21:38:09 by jodufour          #+#    #+#             */
-/*   Updated: 2021/09/27 21:47:15 by jodufour         ###   ########.fr       */
+/*   Updated: 2021/09/30 20:48:17 by jodufour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
 #include "err_msg_lookup.h"
 
-int	mp_err_msg(int err)
+int	mp_err_msg(int const err)
 {
 	int	i;
 

@@ -6,7 +6,7 @@
 /*   By: jodufour <jodufour@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/27 21:59:44 by jodufour          #+#    #+#             */
-/*   Updated: 2021/09/27 22:30:41 by jodufour         ###   ########.fr       */
+/*   Updated: 2021/10/01 01:02:17 by jodufour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 t_ctx	*mp_ctx_get(void)
 {
-	static t_ctx	ctx = {NULL, 0, 0, 0, NULL};
+	static t_ctx	ctx = {NULL, 0, 0, 0, NULL, 0};
 
 	return (&ctx);
 }

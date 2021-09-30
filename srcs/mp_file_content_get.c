@@ -1,36 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   mp_file_content_get.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jodufour <jodufour@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/09/27 21:34:22 by jodufour          #+#    #+#             */
-/*   Updated: 2021/10/01 00:38:16 by jodufour         ###   ########.fr       */
+/*   Created: 2021/09/30 21:12:56 by jodufour          #+#    #+#             */
+/*   Updated: 2021/09/30 21:45:18 by jodufour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <stdio.h>
 #include "micro_paint.h"
-#include "type/t_ctx.h"
-#include "enum/e_ret.h"
 
-int	main(int ac, char const **av)
+char	*mp_file_content_get(FILE *stream)
 {
-	int	ret;
+	char	*output;
+	char	*tmp;
+	char	buff[BUFF_SIZE + 1];
+	size_t	frd;
 
-	if (ac != 2)
-		return (!!mp_err_msg(AC_ERR));
-	ret = mp_file_content_check(av[1]);
-	if (ret == SUCCESS)
-		ret = mp_ctx_init(av[1]);
-	if (ret == SUCCESS)
+	output = NULL;
+	frd = fread(buff, sizeof(char), BUFF_SIZE, stream);
+	while (frd)
 	{
-		mp_ctx_print();
-		mp_ctx_zone_fill();
-		mp_ctx_zone_print();
+		buff[frd] = 0;
+		tmp = output;
+		output = mp_strjoin(output, buff);
+		mp_memdel(&tmp);
+		if (!output)
+		{
+			fclose(stream);
+			return (NULL);
+		}
+		frd = fread(buff, sizeof(char), BUFF_SIZE, stream);
 	}
-	mp_ctx_clear();
-	if (ret != SUCCESS)
-		return (!!mp_err_msg(ret));
-	return (SUCCESS);
+	return (output);
 }

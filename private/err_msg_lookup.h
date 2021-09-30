@@ -6,7 +6,7 @@
 /*   By: jodufour <jodufour@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/27 21:41:34 by jodufour          #+#    #+#             */
-/*   Updated: 2021/09/27 22:37:34 by jodufour         ###   ########.fr       */
+/*   Updated: 2021/10/01 00:45:16 by jodufour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,9 @@ static t_err_msg const		g_err_msg[] = {
 	{AC_ERR, "Error: argument\n", 16},
 	{FOPEN_ERR, "Error: Operation file corrupted\n", 32},
 	{PARSE_ERR, "Error: Operation file corrupted\n", 32},
+	{MALLOC_ERR, "Error: Operation file corrupted\n", 32},
+	{LINE_FORMAT_ERR, "Error: Operation file corrupted\n", 32},
+	{MP_FILE_CONTENT_GET_ERR, "Error: Operation file corrupted\n", 32},
 	{0, NULL, 0}
 };
 

@@ -1,24 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   mp_ctx_print.c                                     :+:      :+:    :+:   */
+/*   t_int.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jodufour <jodufour@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/09/27 22:40:35 by jodufour          #+#    #+#             */
-/*   Updated: 2021/10/01 01:06:38 by jodufour         ###   ########.fr       */
+/*   Created: 2021/10/01 00:51:30 by jodufour          #+#    #+#             */
+/*   Updated: 2021/10/01 00:53:09 by jodufour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "type/t_ctx.h"
+#ifndef T_INT_H
+# define T_INT_H
 
-void	mp_ctx_print(void)
-{
-	t_ctx *const	ctx = mp_ctx_get();
+typedef signed char				t_hhint;
+typedef signed short int		t_hint;
+typedef signed int				t_int;
+typedef signed long int			t_lint;
+typedef signed long long int	t_llint;
 
-	printf("ctx->stream: %p\n", ctx->stream);
-	printf("ctx->zone_width: %d\n", ctx->zone_width);
-	printf("ctx->zone_height: %d\n", ctx->zone_height);
-	printf("ctx->background_char: %c\n", ctx->background_char);
-	printf("ctx->zone: %s\n", ctx->zone);
-}
+typedef unsigned char			t_hhuint;
+typedef unsigned short int		t_huint;
+typedef unsigned int			t_uint;
+typedef unsigned long int		t_luint;
+typedef unsigned long long int	t_lluint;
+
+#endif

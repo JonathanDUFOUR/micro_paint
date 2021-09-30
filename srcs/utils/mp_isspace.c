@@ -1,24 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   mp_ctx_print.c                                     :+:      :+:    :+:   */
+/*   mp_isspace.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jodufour <jodufour@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/09/27 22:40:35 by jodufour          #+#    #+#             */
-/*   Updated: 2021/10/01 01:06:38 by jodufour         ###   ########.fr       */
+/*   Created: 2021/10/01 00:03:57 by jodufour          #+#    #+#             */
+/*   Updated: 2021/10/01 00:04:19 by jodufour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "type/t_ctx.h"
+#include <stdbool.h>
 
-void	mp_ctx_print(void)
+bool	mp_isspace(char const c)
 {
-	t_ctx *const	ctx = mp_ctx_get();
-
-	printf("ctx->stream: %p\n", ctx->stream);
-	printf("ctx->zone_width: %d\n", ctx->zone_width);
-	printf("ctx->zone_height: %d\n", ctx->zone_height);
-	printf("ctx->background_char: %c\n", ctx->background_char);
-	printf("ctx->zone: %s\n", ctx->zone);
+	return (c == ' ');
 }

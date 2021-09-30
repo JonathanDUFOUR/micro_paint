@@ -6,7 +6,7 @@
 /*   By: jodufour <jodufour@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/27 22:07:47 by jodufour          #+#    #+#             */
-/*   Updated: 2021/09/27 22:29:54 by jodufour         ###   ########.fr       */
+/*   Updated: 2021/10/01 00:58:47 by jodufour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,6 @@ void	mp_ctx_clear(void)
 
 	if (ctx->stream)
 		fclose(ctx->stream);
-	free(ctx->draw_zone);
+	free(ctx->zone);
 	memset(ctx, 0, sizeof(t_ctx));
 }

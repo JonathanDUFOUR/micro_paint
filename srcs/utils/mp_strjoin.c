@@ -1,24 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   mp_ctx_print.c                                     :+:      :+:    :+:   */
+/*   mp_strjoin.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jodufour <jodufour@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/09/27 22:40:35 by jodufour          #+#    #+#             */
-/*   Updated: 2021/10/01 01:06:38 by jodufour         ###   ########.fr       */
+/*   Created: 2021/09/30 20:56:44 by jodufour          #+#    #+#             */
+/*   Updated: 2021/09/30 21:03:04 by jodufour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "type/t_ctx.h"
+#include <stdlib.h>
+#include "micro_paint.h"
 
-void	mp_ctx_print(void)
+char	*mp_strjoin(char const *s0, char const *s1)
 {
-	t_ctx *const	ctx = mp_ctx_get();
+	char	*output;
+	char	*ptr;
+	size_t	len;
 
-	printf("ctx->stream: %p\n", ctx->stream);
-	printf("ctx->zone_width: %d\n", ctx->zone_width);
-	printf("ctx->zone_height: %d\n", ctx->zone_height);
-	printf("ctx->background_char: %c\n", ctx->background_char);
-	printf("ctx->zone: %s\n", ctx->zone);
+	len = 0;
+	if (s0)
+		len = mp_strlen(s0);
+	if (s1)
+		len += mp_strlen(s1);
+	output = malloc((len + 1) * sizeof(char));
+	if (!output)
+		return (NULL);
+	ptr = output;
+	while (s0 && *s0)
+		*ptr++ = *s0++;
+	while (s1 && *s1)
+		*ptr++ = *s1++;
+	*ptr = 0;
+	return (output);
 }

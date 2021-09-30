@@ -1,24 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   mp_ctx_print.c                                     :+:      :+:    :+:   */
+/*   mp_ctx_zone_fill.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jodufour <jodufour@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/09/27 22:40:35 by jodufour          #+#    #+#             */
-/*   Updated: 2021/10/01 01:06:38 by jodufour         ###   ########.fr       */
+/*   Created: 2021/10/01 00:38:08 by jodufour          #+#    #+#             */
+/*   Updated: 2021/10/01 01:06:05 by jodufour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <string.h>
+#include "type/t_int.h"
 #include "type/t_ctx.h"
+#include "enum/e_ret.h"
 
-void	mp_ctx_print(void)
+int	mp_ctx_zone_fill(void)
 {
 	t_ctx *const	ctx = mp_ctx_get();
 
-	printf("ctx->stream: %p\n", ctx->stream);
-	printf("ctx->zone_width: %d\n", ctx->zone_width);
-	printf("ctx->zone_height: %d\n", ctx->zone_height);
-	printf("ctx->background_char: %c\n", ctx->background_char);
-	printf("ctx->zone: %s\n", ctx->zone);
+	(void)ctx;
+	return (SUCCESS);
 }

@@ -4,6 +4,7 @@
 !*.c
 !*.h
 !en.txt
+!op_*.txt
 !.gitignore
 !Makefile
 !LICENSE
