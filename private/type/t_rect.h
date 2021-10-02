@@ -1,24 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   mp_ctx_print.c                                     :+:      :+:    :+:   */
+/*   t_rect.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jodufour <jodufour@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/09/27 22:40:35 by jodufour          #+#    #+#             */
-/*   Updated: 2021/10/02 13:11:44 by jodufour         ###   ########.fr       */
+/*   Created: 2021/10/02 19:39:33 by jodufour          #+#    #+#             */
+/*   Updated: 2021/10/02 20:03:18 by jodufour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "type/t_ctx.h"
+#ifndef T_RECT_H
+# define T_RECT_H
 
-void	mp_ctx_print(void)
+typedef struct s_rect	t_rect;
+
+struct s_rect
 {
-	t_ctx *const	ctx = mp_ctx_get();
+	char	type;
+	float	x;
+	float	y;
+	float	width;
+	float	height;
+	char	c;
+};
 
-	printf("ctx->stream: %p\n", ctx->stream);
-	printf("ctx->zone_width: %d\n", ctx->zone_width);
-	printf("ctx->zone_height: %d\n", ctx->zone_height);
-	printf("ctx->background_char: %c\n", ctx->background_char);
-	printf("ctx->zone: %s\n", ctx->zone);
-}
+#endif

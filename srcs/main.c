@@ -6,7 +6,7 @@
 /*   By: jodufour <jodufour@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/27 21:34:22 by jodufour          #+#    #+#             */
-/*   Updated: 2021/10/01 00:38:16 by jodufour         ###   ########.fr       */
+/*   Updated: 2021/10/02 23:23:45 by jodufour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,12 +25,12 @@ int	main(int ac, char const **av)
 		ret = mp_ctx_init(av[1]);
 	if (ret == SUCCESS)
 	{
-		mp_ctx_print();
-		mp_ctx_zone_fill();
-		mp_ctx_zone_print();
+		ret = mp_ctx_zone_fill();
+		if (ret == SUCCESS)
+			mp_ctx_zone_print();
 	}
 	mp_ctx_clear();
 	if (ret != SUCCESS)
-		return (!!mp_err_msg(ret));
+		return (mp_err_msg(ret));
 	return (SUCCESS);
 }

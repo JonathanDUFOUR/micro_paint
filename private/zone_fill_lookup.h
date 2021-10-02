@@ -1,27 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   e_ret.h                                            :+:      :+:    :+:   */
+/*   zone_fill_lookup.h                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jodufour <jodufour@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/09/27 21:34:50 by jodufour          #+#    #+#             */
-/*   Updated: 2021/10/02 23:22:23 by jodufour         ###   ########.fr       */
+/*   Created: 2021/10/02 15:36:03 by jodufour          #+#    #+#             */
+/*   Updated: 2021/10/02 20:24:57 by jodufour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef E_RET_H
-# define E_RET_H
+#ifndef ZONE_FILL_LOOKUP_H
+# define ZONE_FILL_LOOKUP_H
 
-enum	e_ret
+# include <stddef.h>
+# include "type/t_rect.h"
+
+typedef struct s_fill	t_fill;
+
+struct s_fill
 {
-	SUCCESS,
-	AC_ERR,
-	FOPEN_ERR,
-	PARSE_ERR,
-	MALLOC_ERR,
-	LINE_FORMAT_ERR,
-	MP_FILE_CONTENT_GET_ERR
+	char const	type;
+	int			(*f)(t_rect rect);
+};
+
+int	mp_ctx_zone_fill_rect_empty(t_rect rect);
+int	mp_ctx_zone_fill_rect_full(t_rect rect);
+
+static t_fill const		g_fill[] = {
+	{'r', mp_ctx_zone_fill_rect_empty},
+	{'R', mp_ctx_zone_fill_rect_full},
+	{0, NULL}
 };
 
 #endif

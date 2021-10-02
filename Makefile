@@ -6,7 +6,7 @@
 #    By: jodufour <jodufour@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/09/27 21:32:25 by jodufour          #+#    #+#              #
-#    Updated: 2021/10/01 00:39:47 by jodufour         ###   ########.fr        #
+#    Updated: 2021/10/02 20:08:41 by jodufour         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -39,31 +39,33 @@ PRV_DIR	=	private/
 #            SOURCE FILES            #
 ######################################
 SRC		=	\
-			${addprefix ctx/,			\
-				${addprefix zone/,		\
-					mp_ctx_zone_fill.c	\
-					mp_ctx_zone_print.c	\
-				}						\
-				mp_ctx_clear.c			\
-				mp_ctx_get.c			\
-				mp_ctx_init.c			\
-				mp_ctx_print.c			\
-			}							\
-			${addprefix utils/,			\
-				mp_isdigit.c			\
-				mp_isspace.c			\
-				mp_line_len.c			\
-				mp_memdel.c				\
-				mp_skip_float.c			\
-				mp_skip_integer.c		\
-				mp_skip_spaces.c		\
-				mp_strchr.c				\
-				mp_strjoin.c			\
-				mp_strlen.c				\
-			}							\
-			main.c						\
-			mp_err_msg.c				\
-			mp_file_content_check.c		\
+			${addprefix ctx/,						\
+				${addprefix zone/,					\
+					mp_ctx_zone_fill_rect_empty.c	\
+					mp_ctx_zone_fill_rect_full.c	\
+					mp_ctx_zone_fill.c				\
+					mp_ctx_zone_print.c				\
+				}									\
+				mp_ctx_clear.c						\
+				mp_ctx_get.c						\
+				mp_ctx_init.c						\
+				mp_ctx_print.c						\
+			}										\
+			${addprefix utils/,						\
+				mp_isdigit.c						\
+				mp_isspace.c						\
+				mp_line_len.c						\
+				mp_memdel.c							\
+				mp_skip_float.c						\
+				mp_skip_integer.c					\
+				mp_skip_spaces.c					\
+				mp_strchr.c							\
+				mp_strjoin.c						\
+				mp_strlen.c							\
+			}										\
+			main.c									\
+			mp_err_msg.c							\
+			mp_file_content_check.c					\
 			mp_file_content_get.c
 
 ######################################
