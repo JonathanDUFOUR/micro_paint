@@ -6,13 +6,12 @@
 /*   By: jodufour <jodufour@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/01 00:38:08 by jodufour          #+#    #+#             */
-/*   Updated: 2021/10/02 23:23:33 by jodufour         ###   ########.fr       */
+/*   Updated: 2021/10/03 18:13:58 by jodufour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdio.h>
 #include "zone_fill_lookup.h"
-#include "type/t_int.h"
 #include "type/t_ctx.h"
 #include "enum/e_ret.h"
 
