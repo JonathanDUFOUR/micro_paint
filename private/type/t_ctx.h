@@ -6,7 +6,7 @@
 /*   By: jodufour <jodufour@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/27 21:54:11 by jodufour          #+#    #+#             */
-/*   Updated: 2021/10/01 01:02:05 by jodufour         ###   ########.fr       */
+/*   Updated: 2021/10/03 02:38:27 by jodufour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,6 @@ int		mp_ctx_init(char const *filename);
 int		mp_ctx_zone_fill(void);
 
 void	mp_ctx_clear(void);
-void	mp_ctx_print(void);
 void	mp_ctx_zone_print(void);
 
 t_ctx	*mp_ctx_get(void);

@@ -6,7 +6,7 @@
 #    By: jodufour <jodufour@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/09/27 21:32:25 by jodufour          #+#    #+#              #
-#    Updated: 2021/10/02 20:08:41 by jodufour         ###   ########.fr        #
+#    Updated: 2021/10/03 02:36:35 by jodufour         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -49,7 +49,6 @@ SRC		=	\
 				mp_ctx_clear.c						\
 				mp_ctx_get.c						\
 				mp_ctx_init.c						\
-				mp_ctx_print.c						\
 			}										\
 			${addprefix utils/,						\
 				mp_isdigit.c						\
