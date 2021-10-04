@@ -6,7 +6,7 @@
 /*   By: jodufour <jodufour@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/09/27 21:51:42 by jodufour          #+#    #+#             */
-/*   Updated: 2021/10/02 15:33:07 by jodufour         ###   ########.fr       */
+/*   Updated: 2021/10/04 02:33:49 by jodufour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,15 +18,14 @@
 int	mp_ctx_init(char const *filename)
 {
 	t_ctx *const	ctx = mp_ctx_get();
-	int				ret;
 
 	ctx->stream = fopen(filename, "r");
 	if (!ctx->stream)
 		return (FOPEN_ERR);
-	ret = fscanf(ctx->stream, "%d %d %c\n",
-			&ctx->zone_width,
-			&ctx->zone_height,
-			&ctx->background_char);
+	fscanf(ctx->stream, "%d %d %c\n",
+		&ctx->zone_width,
+		&ctx->zone_height,
+		&ctx->background_char);
 	if (ctx->zone_width < 1 || ctx->zone_width > 300
 		|| ctx->zone_height < 1 || ctx->zone_height > 300)
 		return (PARSE_ERR);

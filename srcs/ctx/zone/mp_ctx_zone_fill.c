@@ -6,7 +6,7 @@
 /*   By: jodufour <jodufour@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/10/01 00:38:08 by jodufour          #+#    #+#             */
-/*   Updated: 2021/10/03 18:13:58 by jodufour         ###   ########.fr       */
+/*   Updated: 2021/10/04 03:21:49 by jodufour         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,6 @@ int	mp_ctx_zone_fill(void)
 	int				ret;
 	int				i;
 
-	(void)ctx;
 	ret = fscanf(ctx->stream, "%c %f %f %f %f %c\n", &rect.type,
 			&rect.x, &rect.y, &rect.width, &rect.height, &rect.c);
 	while (ret != EOF)
