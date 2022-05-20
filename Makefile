@@ -6,34 +6,29 @@
 #    By: jodufour <jodufour@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/09/27 21:32:25 by jodufour          #+#    #+#              #
-#    Updated: 2021/10/03 02:36:35 by jodufour         ###   ########.fr        #
+#    Updated: 2022/05/20 00:55:08 by jodufour         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 ######################################
 #              COMMANDS              #
 ######################################
-CC		=	clang -c -o
-LINK	=	clang -o
+CC		=	clang
+LINK	=	clang
 MKDIR	=	mkdir -p
 RM		=	rm -rf
 
 ######################################
 #             EXECUTABLE             #
 ######################################
-NAME	=	micro_paint
+NAME	=	micro_paint.out
 
 #######################################
 #             DIRECTORIES             #
 #######################################
 SRC_DIR	=	srcs/
 OBJ_DIR	=	objs/
-INC_DIR	=	
 PRV_DIR	=	private/
-
-#######################################
-#              LIBRARIES              #
-#######################################
 
 ######################################
 #            SOURCE FILES            #
@@ -78,7 +73,8 @@ DEP		=	${OBJ:.o=.d}
 #######################################
 #                FLAGS                #
 #######################################
-CFLAGS	=	-Wall -Wextra #-Werror
+CFLAGS	=	-c
+CFLAGS	+=	-Wall -Wextra -Werror
 CFLAGS	+=	-MMD -MP
 CFLAGS	+=	-I${PRV_DIR}
 
@@ -91,16 +87,18 @@ endif
 #######################################
 #                RULES                #
 #######################################
-${NAME}:	${OBJ}
-	${LINK} $@ $^ ${LDFLAGS}
+.PHONY:	all clean fclean re fre
 
-all:	${NAME}
+${NAME}: ${OBJ}
+	${LINK} $^ ${LDFLAGS} ${OUTPUT_OPTION}
+
+all: ${NAME}
 
 -include ${DEP}
 
-${OBJ_DIR}%.o:	${SRC_DIR}%.c
+${OBJ_DIR}%.o: ${SRC_DIR}%.c
 	@${MKDIR} ${@D}
-	${CC} $@ ${CFLAGS} $<
+	${CC} $< ${CFLAGS} ${OUTPUT_OPTION}
 
 clean:
 	${RM} ${OBJ_DIR}
@@ -108,9 +106,9 @@ clean:
 fclean:
 	${RM} ${OBJ_DIR} ${NAME}
 
-re:	fclean all
+re: clean all
 
--include /home/jodufour/Templates/mk_files/coffee.mk
--include /home/jodufour/Templates/mk_files/norm.mk
+fre: fclean all
 
-.PHONY:	all clean fclean re coffee norm
+-include ${HOME}/Templates/mk_files/coffee.mk
+-include ${HOME}/Templates/mk_files/norm.mk
